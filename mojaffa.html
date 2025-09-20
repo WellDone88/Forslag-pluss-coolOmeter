@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Legger opp mer etter MVC og fildeling etter vi limer inn hverandres arbeid  -->
+    <div id="app"></div>
+
+    <div><img class="BakgrunnsDiv" src="vei2D.png"></div>
+    <img id="blåbil" class="car" src="Bil_2D.png">
+    
+    <!-- bar med inline styleing en så lenge. Er 2 diver opprinngelig -->
+    <div style="width: 300px; height: 30px; border: 2px solid black; background: #222;">
+        <div id="ometer" style="height: 100%; width: 50%; background: goldenrod"></div>
+    </div>
+
+    
+    <!-- Vi får dette på en måte opp i arrays, Jørgen vet hvordan :D -->
+    <!-- stereo -->
+    <div onclick="SteroCoolnes()"><img class="steroCool" src="Stereo.png"></div>
+
+    <!-- spiker -->
+
+    <div onclick="SpikesDmg()"><img class="spikes" src="Spikermatte.png"></div>
+
+    <!-- spoiler -->
+
+    <div onclick="SpoilerCool()"><img class="Spoiler" src="Spoiler_Bil.png"></div>
+
+    <!-- Knust rute -->
+
+    <div onclick="KnustRute()"><img class="rute" src="Knust_rute.png"></div>
+
+
+
+
+    <!-- Snakkebooble leker meg -->
+     <div><img class="snakkebobble" src="Snakkebobble_.png"></div>
+    <div><img class="bestemor" src="Bestemor.png"></div>
+
+
+    <button onclick="carMoveLeft()">Left</button>
+    <button onclick="carMoveRight()">right</button>
+    <script>
+//bar. Ønske om at den ikke starter på 0 for å trigge en fremtidig gameover eller you win beskjed/pop up. justeres
+let progress = 50;
+let bil = document.getElementById('blåbil');
+
+function fillBar() {
+  if (progress < 100) {
+    progress++;
+    document.getElementById("ometer").style.width = progress + "%";
+  }
+}
+
+//setInterval(fillBar, 100); // øker 1% hvert 100ms
+
+function SteroCoolnes() {
+    if (progress < 100);
+    progress = progress + 25;
+    document.getElementById("ometer").style.width = progress + "%";
+}
+
+function SpikesDmg() {
+    if (progress < 100);
+    progress = progress - 25;
+    document.getElementById("ometer").style.width = progress + "%";
+}
+
+function SpoilerCool() {
+    if (progress < 100);
+    progress = progress + 25;
+    document.getElementById("ometer").style.width = progress + "%";
+}
+
+function KnustRute() {
+    if (progress < 100);
+    progress = progress - 25;
+    document.getElementById("ometer").style.width = progress + "%";
+}
+//forslag igjen på enkel løsning.
+ function carMoveLeft(){ 
+bil.classList.remove('car')
+bil.classList.add('sving')
+}
+
+function carMoveRight(){
+bil.classList.remove('sving')
+bil.classList.add('car')
+}
+
+</script>
+    
+
+<!-- Kun pixel manupulering ikke styling slik at ikke alt ligger oppe på hverandre når jeg ser -->
+    <style>
+        .BakgrunnsDiv{
+            position: fixed;
+            z-index: -1;
+        }
+        .car {
+            position: fixed;
+            height: 140px;
+            left: 280px;
+            top: 350px;
+
+
+        }
+
+        .steroCool{
+            position:fixed;
+            height: 30px;
+            top: 150px;
+            left: 190px ;
+            cursor: pointer;
+        }
+
+        .spikes{
+            position:fixed;
+            height: 100px;
+            top: 200px;
+            left: 190px ;
+            cursor: pointer;
+           
+        }
+
+        .Spoiler{
+            position: fixed;
+            height: 25px;
+            top: 70px;
+            left: 250px ;
+            cursor: pointer;
+        }
+
+        .rute{
+            position: fixed;
+            height: 90px;
+            top: 400px;
+            left: 180px ;
+            cursor: pointer;
+        }
+
+        .bestemor{
+            position: fixed;
+            height: 100px;
+            top: 300px;
+            left: 70px ;
+        }
+
+        .snakkebobble{
+            position: fixed;
+            height: 90px;
+            top: 220px;
+            left: 100px;
+        }
+        /* Forslag til en enkel løsning */
+        .sving{
+            position: fixed;
+            height: 140px;
+            left: 200px;
+            top: 350px;
+        }
+    </style>
+</body>
+</html>
